@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doctor - SmartCare Clinic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SmartCare Clinic</div>
+    <nav>
+      <span class="who">Signed in as doctor</span>
+      <button class="btn small secondary" id="btnLogout">Log out</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-head"><h2>My appointments</h2><span class="hint" id="count"></span></div>
+      <form class="filters two" id="filters">
+        <div class="field"><label for="fDate">Date</label><input id="fDate" type="date" required></div>
+        <div class="field"><label for="fPatient">Patient name</label><input id="fPatient" placeholder="Search by patient"></div>
+        <div class="field"><button class="btn" type="submit">Show appointments</button></div>
+      </form>
+      <div id="appointmentList"></div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="rxModal">
+    <form class="modal" id="rxForm" aria-labelledby="rxTitle">
+      <h2 id="rxTitle">Write a prescription</h2>
+      <p class="hint" id="rxFor"></p>
+      <div class="field"><label for="rxMed">Medication</label><input id="rxMed" required minlength="3"></div>
+      <div class="field"><label for="rxDose">Dosage</label><input id="rxDose" required placeholder="e.g. 500 mg twice daily"></div>
+      <div class="field"><label for="rxNotes">Notes</label><textarea id="rxNotes" rows="3" maxlength="200"></textarea></div>
+      <div class="modal-actions">
+        <button type="button" class="btn secondary" data-close>Cancel</button>
+        <button type="submit" class="btn">Save prescription</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/doctor.js"></script>
+</body>
+</html>

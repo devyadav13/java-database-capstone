@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartCare Clinic Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="landing">
+    <section class="landing-copy">
+      <div class="brand">SmartCare Clinic</div>
+      <h1>Every appointment slot, in one place.</h1>
+      <p>Patients book an open time with the doctor they need. Doctors see the day ahead. Admins keep the doctor list current.</p>
+      <div class="role-actions">
+        <button class="btn" id="btnPatient">Patient log in</button>
+        <button class="btn secondary" id="btnDoctor">Doctor log in</button>
+        <button class="btn secondary" id="btnAdmin">Admin log in</button>
+      </div>
+      <p class="hint" style="margin-top:1.25rem">New patient? <a href="#" id="linkSignup">Create an account</a> or <a href="/pages/patientDashboard.html">browse doctors</a> without logging in.</p>
+    </section>
+
+    <section class="landing-week" aria-label="Example week of appointment slots">
+      <h2>This week at the clinic</h2>
+      <div class="week" id="week" role="img" aria-label="Weekly grid: white slots are booked, amber slots are open"></div>
+      <div class="legend"><span class="l-taken">Booked</span><span class="l-open">Open to book</span></div>
+    </section>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+</html>

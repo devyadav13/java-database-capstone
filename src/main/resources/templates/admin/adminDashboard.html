@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin - SmartCare Clinic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">SmartCare Clinic</div>
+    <nav>
+      <span class="who">Signed in as admin</span>
+      <button class="btn small" id="btnAddDoctor">Add doctor</button>
+      <button class="btn small secondary" id="btnLogout">Log out</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-head"><h2>Doctors</h2><span class="hint" id="count"></span></div>
+      <form class="filters" id="filters">
+        <div class="field"><label for="fName">Doctor name</label><input id="fName" placeholder="Search by name"></div>
+        <div class="field"><label for="fSpecialty">Specialty</label><input id="fSpecialty" placeholder="e.g. Cardiologist"></div>
+        <div class="field"><label for="fTime">Time of day</label>
+          <select id="fTime"><option value="">Any time</option><option value="AM">Morning</option><option value="PM">Afternoon</option></select></div>
+        <div class="field"><button class="btn" type="submit">Search</button></div>
+      </form>
+      <div class="doctor-grid" id="doctorList"></div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="addDoctorModal">
+    <form class="modal" id="addDoctorForm" aria-labelledby="addTitle">
+      <h2 id="addTitle">Add a doctor</h2>
+      <div class="field"><label for="dName">Full name</label><input id="dName" required minlength="3"></div>
+      <div class="field"><label for="dSpecialty">Specialty</label><input id="dSpecialty" required minlength="3"></div>
+      <div class="field"><label for="dEmail">Email</label><input id="dEmail" type="email" required></div>
+      <div class="field"><label for="dPassword">Password</label><input id="dPassword" type="password" required minlength="6"></div>
+      <div class="field"><label for="dPhone">Phone</label><input id="dPhone" required pattern="[0-9]{10}" inputmode="numeric"><span class="hint">10 digits.</span></div>
+      <div class="field">
+        <label>Available slots</label>
+        <div class="checks" id="slotChecks"></div>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn secondary" data-close>Cancel</button>
+        <button type="submit" class="btn">Save doctor</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patient - SmartCare Clinic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" style="text-decoration:none">SmartCare Clinic</a>
+    <nav id="nav"></nav>
+  </header>
+
+  <main>
+    <section class="section" id="mySection" hidden>
+      <div class="section-head">
+        <h2>My appointments</h2>
+        <div class="field" style="margin:0"><label for="apptFilter">Show</label>
+          <select id="apptFilter"><option value="">All</option><option value="future">Upcoming</option><option value="past">Completed</option></select></div>
+      </div>
+      <div id="myAppointments"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Find a doctor</h2><span class="hint" id="count"></span></div>
+      <form class="filters" id="filters">
+        <div class="field"><label for="fName">Doctor name</label><input id="fName" placeholder="Search by name"></div>
+        <div class="field"><label for="fSpecialty">Specialty</label><input id="fSpecialty" placeholder="e.g. Pediatrician"></div>
+        <div class="field"><label for="fTime">Time of day</label>
+          <select id="fTime"><option value="">Any time</option><option value="AM">Morning</option><option value="PM">Afternoon</option></select></div>
+        <div class="field"><button class="btn" type="submit">Search</button></div>
+      </form>
+      <div class="doctor-grid" id="doctorList"></div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="bookModal">
+    <form class="modal" id="bookForm" aria-labelledby="bookTitle">
+      <h2 id="bookTitle">Book an appointment</h2>
+      <p class="hint" id="bookWith"></p>
+      <div class="field"><label for="bookDate">Date</label><input id="bookDate" type="date" required></div>
+      <label>Open slots</label>
+      <div class="slot-picker" id="slotPicker"><span class="hint">Choose a date to see open slots.</span></div>
+      <div class="modal-actions">
+        <button type="button" class="btn secondary" data-close>Cancel</button>
+        <button type="submit" class="btn">Confirm booking</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/patient.js"></script>
+</body>
+</html>
